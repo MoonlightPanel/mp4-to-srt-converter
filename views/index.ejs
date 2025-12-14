@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MP4 to SRT Converter</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MP4 to SRT Converter</h1>
+            <p>Convert your MP4 videos to SRT subtitle files effortlessly</p>
+        </div>
+
+        <div class="main-content">
+            <div class="upload-section">
+                <div class="upload-area" id="uploadArea">
+                    <svg class="upload-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                        <polyline points="17 8 12 3 7 8"></polyline>
+                        <line x1="12" y1="3" x2="12" y2="15"></line>
+                    </svg>
+                    <h2>Drag and drop your MP4 file</h2>
+                    <p>or click to browse</p>
+                    <input type="file" id="fileInput" accept=".mp4" hidden>
+                </div>
+                <input type="file" id="hiddenFileInput" accept=".mp4" hidden>
+            </div>
+
+            <div class="file-info" id="fileInfo" style="display: none;">
+                <div class="file-details">
+                    <svg class="file-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
+                        <polyline points="13 2 13 9 20 9"></polyline>
+                    </svg>
+                    <div class="file-meta">
+                        <p class="file-name" id="fileName"></p>
+                        <p class="file-size" id="fileSize"></p>
+                    </div>
+                </div>
+                <button class="btn-remove" id="removeFile">&times;</button>
+            </div>
+
+            <div class="progress-section" id="progressSection" style="display: none;">
+                <h3>Conversion Progress</h3>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar">
+                        <span class="progress-text" id="progressText">0%</span>
+                    </div>
+                </div>
+                <p class="progress-status" id="progressStatus">Initializing conversion...</p>
+            </div>
+
+            <div class="conversion-complete" id="conversionComplete" style="display: none;">
+                <svg class="success-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <h3>Conversion Complete!</h3>
+                <p id="completionMessage">Your SRT file is ready to download.</p>
+                <a href="#" class="btn-primary" id="downloadBtn">Download SRT File</a>
+                <button class="btn-secondary" id="convertAnother">Convert Another File</button>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <svg class="error-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="8" x2="12" y2="12"></line>
+                    <line x1="12" y1="16" x2="12.01" y2="16"></line>
+                </svg>
+                <h3>Conversion Failed</h3>
+                <p id="errorText">An error occurred during conversion.</p>
+                <button class="btn-secondary" id="tryAgain">Try Again</button>
+            </div>
+
+            <div class="button-group" id="buttonGroup">
+                <button class="btn-primary" id="convertBtn" disabled>Convert to SRT</button>
+                <button class="btn-secondary" id="resetBtn" style="display: none;">Reset</button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 MP4 to SRT Converter. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+</html>
